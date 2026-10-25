@@ -19,22 +19,15 @@ have their own costs. Your prompts live in a git repo you own.
 
 ## Getting started
 
-With **Go 1.27 or later** and the `claude` CLI installed and logged in, generate a config repo
-from your website:
+Choose the path that matches your model access:
 
-```bash
-git clone https://github.com/cheapseatsdev/cheapseats
-cd cheapseats
-go run ./cmd/cheapseats init https://yoursite.com ../acme-config
-# Review ../acme-config TODOs: brand, audience, facts and buyer questions.
-CHEAPSEATS_CONFIG=../acme-config/cheapseats.toml go run ./cmd/cheapseats check
-CHEAPSEATS_CONFIG=../acme-config/cheapseats.toml go run ./cmd/cheapseats serve
-```
+| Path | What you need | Model costs |
+| --- | --- | --- |
+| [Docker with API keys](https://cheapseats.dev/docs/getting-started/#docker-with-api-keys) — fastest setup | Docker and `ANTHROPIC_API_KEY`; `OPENAI_API_KEY` is optional. No Go or CLI installation. | Paid API usage. |
+| [Go with subscriptions](https://cheapseats.dev/docs/getting-started/#go-with-subscriptions) | Go 1.27+ and an installed, logged-in `claude` CLI; `codex` is optional. | No API spend; calls share your subscription allowance. |
 
-Open <http://127.0.0.1:3000>, choose a set and run it. This config uses your Claude subscription
-for answers, grading and analysis, with no API key or API spend; calls share your plan's allowance.
-OpenAI is optional. [Getting started](https://cheapseats.dev/docs/getting-started/) covers API
-setup, and [deployment](https://cheapseats.dev/docs/deploying/) covers containers and VMs.
+The Docker image includes neither subscription CLI. See [deployment](https://cheapseats.dev/docs/deploying/)
+for containers and VMs.
 
 ## Links
 
